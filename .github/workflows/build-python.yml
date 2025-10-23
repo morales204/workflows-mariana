@@ -1,0 +1,22 @@
+name: Compilación automática
+
+on:
+  push:
+    branches: [main, dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias
+        run: |
+          pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install - r requirements.txt; fi
+
+      - name: Ejecutar código de Python
+        run: python main.py
+
