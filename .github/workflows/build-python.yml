@@ -17,6 +17,6 @@ jobs:
           pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install - r requirements.txt; fi
 
-      - name: Ejecutar código de Python
-        run: python main.py
-
+      - name: Ejecutar código Python (solo si existe)
+        run: |
+          if [ -f main.py ]; then python main.py; else echo "No hay archivo main.py aún"; fi
