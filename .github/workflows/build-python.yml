@@ -20,7 +20,3 @@ jobs:
       - name: Ejecutar código Python (solo si existe)
         run: |
           if [ -f main.py ]; then python main.py; else echo "No hay archivo main.py aún"; fi
-
-      - name: Notificar fallo
-        if: failure()
-        run: echo "La compilación ha fallado. Revisa el flujo en GitHub Actions."
